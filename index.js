@@ -8,10 +8,13 @@ const account = {
         this.balance= (this.balance + 10)
     },
     withdrawal: function() {
-
+        this.balance - 50
     },
     getAccountName: function() {
-
-    }
+        console.log(this.accountName)
+    },
 }
 account.getBalance();
+console.log(account.accountName);
+account.deposit();
+
