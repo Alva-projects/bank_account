@@ -14,7 +14,7 @@ const account = {
         console.log(this.accountName);
     },
     accountError: function() {
-        let enterName = "Spongebo";
+        enterName = "Spongebo";
         if (this.accountName !== enterName){
             console.log("You really shouldn't steal other people's money...")
         }
