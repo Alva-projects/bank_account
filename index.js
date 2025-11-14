@@ -1,28 +1,39 @@
 const account = {
-    accountName: "Spongebob", /* This is the bank account holder's name */
-    balance: 100, /* This is your starting balance */
-    getBalance: function() {
-        console.log(this.balance)
+    accountName: "Spongebob", /* This is the bank account holder's name, who is the only person allowed into the bank account */
+    balance: 0, /* This is your starting balance */
+
+    getAccountName: function() {
+        console.log("Account holder: " + this.accountName);
     },
     deposit: function() {
-        this.balance = this.balance + 10; /* <-- Make a deposit by changing this number */
+        const deposit = Number(window.prompt ("How much would you like to deposit?"));
+        this.balance = this.balance + deposit; 
+        console.log(`You have deposited ${deposit}`);
     },
     withdrawal: function() {
-        this.balance = this.balance - 50 /* <-- Make a withdrawal by changing this number */
-    },
-    getAccountName: function() {
-        console.log(this.accountName);
+        const withdrawal = Number(window.prompt ("How much would you like to withdraw?"));
+        this.balance = this.balance - withdrawal;
+        console.log(`You have withdrawn ${withdrawal}`);
     },
     accountError: function() {
-        enterName = "Spongebo";
-        if (this.accountName !== enterName){
-            console.log("You really shouldn't steal other people's money...")
+        const enteredName = (window.prompt ("Please enter your username:"));
+
+        if (this.accountName !== enteredName){
+            return false;
         }
-    }
+        else {
+            return true;
+        }
+    },
+    getBalance: function() {
+        console.log("Current balance: " + this.balance)
+    },
 }
-console.log(account.accountName);
-account.withdrawal();
-account.deposit();
-account.getBalance();
 
-
+if (account.accountError() === true) {
+   account.deposit();
+    account.withdrawal();
+    account.getBalance(); 
+} else {
+    console.log("You really shouldn't steal other people's money...");
+}
